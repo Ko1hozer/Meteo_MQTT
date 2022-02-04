@@ -1,27 +1,33 @@
   /*
-Project:  BME280 Sensor data send over MQTT with a ESP8266 / NodeMCU
-Author:   Thomas Edlinger for www.edistechlab.com
-Rebuild:  Artur Gorozinskiy
-Date:     Created 19.10.2019 / updated 02.02.2022
-Version:  V2.1
+Project:  BME280 Sensor, анемометр, флюгер, отправка показаний на MQTT-брокер.  ESP8266 / NodeMCU
+Author:   Artur Gorozinskiy
+Date:     Created 02.02.2022
+Version:  V1.1
 Changelog:
 OTA implementation 
-Placeholder for inTopics
  
-Required libraries (Tools -> manage libraries)
+Используемые библиотеки. (Tools -> manage libraries)
  - PubSubClient by Nick O'Leary V2.7.0  
  - Adafruit BME280 Library V2.0.1
  - Adafruit Unified Sensor V1.1.2
 Required Board (Tools -> Board -> Boards Manager...)
  - Board: esp8266 by ESP8266 Community V2.6.3
-Wirering for the BME280 Sensor:
+Подключение BME280 Sensor:
 BME280      NodeMCU
 VCC         3.3V
 GND         G
-SCL         D1 / GPIO5
-SDA         D2 / GPIO4
+SCL         D1
+SDA         D2
+Подключение Анемометра:
+VCC         3.3V
+GND         G
+Signal      D7
+Подключение Флюгера:
+VCC         3.3V 
+Signal      A0   "VCC через резистор 10кОм на A0"
+GND         G
 */
-bool debug                          = true;    // Вывод инвормации в serial port
+bool debug                          = true;    // Вывод информации в serial port
 
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
